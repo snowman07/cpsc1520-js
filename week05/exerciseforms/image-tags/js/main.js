@@ -4,3 +4,31 @@
 // (i.e. cannot be whitespace). If the user tries to add an empty tag, remove the hidden 
 // class from the p.feature.error element.  If the form is submitted correctly, then ensure
 // that the p.feature.error element is hidden.
+
+
+
+document.querySelector(".feature.frm").addEventListener("submit", function(evt) {
+    //console.log("Form submitted...");
+    let frm = evt.target;
+    let tag = frm.elements.tags;
+    let error = document.querySelector("p.feature.error");
+
+    //ensure that there is a value in the tag field adding a tag
+    if (tag.value.trim() != "") {
+        // insert a '#' before the tag for aesthetics
+        document.querySelector("p.feature.tags").innerHTML += "#" + tag.value + " ";
+
+        tag.value = "";
+
+        error.classList.add("hidden");
+    } else {
+        error.classList.remove("hidden");
+    }
+
+    //error
+    // if (tag.value.trim() = "") {
+    //     error("Tags cannot be empty");
+    // }
+
+    evt.preventDefault();
+});
