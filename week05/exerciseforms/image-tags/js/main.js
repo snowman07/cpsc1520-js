@@ -13,22 +13,17 @@ document.querySelector(".feature.frm").addEventListener("submit", function(evt) 
     let tag = frm.elements.tags;
     let error = document.querySelector("p.feature.error");
 
-    //ensure that there is a value in the tag field adding a tag
-    if (tag.value.trim() != "") {
-        // insert a '#' before the tag for aesthetics
-        document.querySelector("p.feature.tags").innerHTML += "#" + tag.value + " ";
-
-        tag.value = "";
-
-        error.classList.add("hidden");
-    } else {
+    if (tag.value.trim() == "") {
         error.classList.remove("hidden");
+        error.innerHTML = "Tags cannot be empty";
+    } else if (tag.value.indexOf(" ") >= 0) {
+        error.classList.remove("hidden");
+        error.innerHTML = "Tags cannot contain spaces";  
+        //tag.value = "";   //
+    } else {
+        document.querySelector("p.feature.tags").innerHTML += "#" + tag.value + " ";
+        tag.value = "";
+        error.classList.add("hidden");
     }
-
-    //error
-    // if (tag.value.trim() = "") {
-    //     error("Tags cannot be empty");
-    // }
-
     evt.preventDefault();
 });
