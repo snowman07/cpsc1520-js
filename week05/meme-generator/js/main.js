@@ -24,14 +24,6 @@ const memeDisplay = document.querySelector(".meme-display img");
 memeForm.addEventListener("submit", function(event){
     event.preventDefault();
 
-
-    // Function that updates the image
-    function updateImage(whichImage){
-        const memeDisplay = document.querySelector(".meme-display img")
-        const path = `img/${whichImage}.png` // to access the img folder
-        memeDisplay.src = path;
-    }
-
     //targetting list of images from other folder
     const memeImage = document.querySelector("#meme-image")
     memeImage.addEventListener("change", function(e){
@@ -40,6 +32,13 @@ memeForm.addEventListener("submit", function(event){
         updateImage(e.currentTarget.value)
     })
     //updateImage(memeImage);
+
+    // Function that updates the image
+    function updateImage(whichImage){
+        const memeDisplay = document.querySelector(".meme-display img")
+        const path = `img/${whichImage}.png` // to access the img folder
+        memeDisplay.src = path;
+    }
     
 });
 // //===============GENERATE BTN============
