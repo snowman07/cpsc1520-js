@@ -28,8 +28,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
     
     
-    memeForm.addEventListener("submit", function(event){
-        
+    memeForm.addEventListener("submit", function(event){ 
         //console.log("Forms submitted");
 
         let memeForm = event.target; // need to target the form inside submit event
@@ -37,18 +36,25 @@ document.addEventListener("DOMContentLoaded", function(){
         let bottomText = memeForm.elements.memeBottomText; // to get the value of BOTTOMTEXT     
         let error = document.querySelector(".error"); // to display error message
 
-        // VALIDATION
-        if ((topText.value.trim() == "") || (bottomText.value.trim() == "")){
-            error.innerHTML = "Top and bottom text cannot be blank";
-        } else {
+        // TEXT VALIDATION
+        // if (topText.value.trim() == "") {
+        //     error.innerHTML = "Top text cannot be blank";
+        // } else if (bottomText.value.trim() == ""){
+        //     error.innerHTML = "Bottom text cannot be blank";
+        // } else if ((topText.value == "") || (bottomText.value == "")) {
+        //     error.innerHTML = "Top and Bottom text cannot be blank";
+        // } 
+
+        if ((topText.value == "") || (bottomText.value == "")) {
+            error.innerHTML = "Top and Bottom text cannot be blank";
+        } else { // if TOPTEXT and BOTTOMTEXT have value
             document.querySelector("p.top-text").innerHTML = topText.value; //to display the input
             topText.value = ""; // remove the text after submit/generate
             document.querySelector("p.bottom-text").innerHTML = bottomText.value; //to display the input
             bottomText.value = ""; // remove the text after submit/generate
-        } 
-
-        event.preventDefault();
-        
+            error.innerHTML = ""; //remove error if validation met
+        }   
+        event.preventDefault();      
     });
 
 });
