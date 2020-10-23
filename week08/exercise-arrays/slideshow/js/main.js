@@ -32,9 +32,8 @@ document.querySelector(".carousel").addEventListener("click", function (evt) {
             } else {
                 currentImg-=1;
             }
-
         }
-        //console.log(currentImg); // to check current array position
+        console.log(currentImg); // to check current array position
         document.querySelector(".carousel>img").src = "images/" + images[currentImg]; 
     }
 });
