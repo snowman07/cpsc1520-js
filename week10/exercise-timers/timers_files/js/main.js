@@ -31,15 +31,15 @@ document.querySelector('.carousel').addEventListener('click', function(evt) {
             currentImg = Number(target.dataset.idx);
         }
 
-        // display the new current image
-        document.querySelector('.carousel>img').src = 'images/' + images[currentImg];
+        // // display the new current image
+        // document.querySelector('.carousel>img').src = 'images/' + images[currentImg];
 
-        // update the active selector bullet
-        document.querySelector('.image-tracker .active').classList.remove('active');
-        document.querySelectorAll('[data-idx]')[currentImg].classList.add('active');
+        // // update the active selector bullet
+        // document.querySelector('.image-tracker .active').classList.remove('active');
+        // document.querySelectorAll('[data-idx]')[currentImg].classList.add('active');
         
         // replace lines 35-40 with the following call
-        //updateSlide(currentImg);
+        updateSlide(currentImg);
     }
 });
 
@@ -62,41 +62,41 @@ document.addEventListener('keydown', function(evt) {
 
 //======
 
-// function updateSlide(index) {
-//     // display the new current image
-//     document.querySelector('.carousel>img').src = 'images/' + images[index];
-//     // update the active selector bullet
-//     document.querySelector('.image-tracker .active').classList.remove('active');
-//     document.querySelectorAll('[data-idx]')[index].classList.add('active');
-// }
+function updateSlide(index) {
+    // display the new current image
+    document.querySelector('.carousel>img').src = 'images/' + images[index];
+    // update the active selector bullet
+    document.querySelector('.image-tracker .active').classList.remove('active');
+    document.querySelectorAll('[data-idx]')[index].classList.add('active');
+}
 
 
-// // add a variable to track the context of the interval
-// let slideshowInterval;
+// add a variable to track the context of the interval
+let slideshowInterval;
 
-// // now call the setInterval function to begin the slideshow
-// slideshowInterval = setInterval(function () {
-//     currentImg += 1;
+// now call the setInterval function to begin the slideshow
+slideshowInterval = setInterval(function () {
+    currentImg += 1;
 
-//     if (currentImg.target == 'mouseover') {
-//         currentImg = 0;
-//     } 
+    if (currentImg.target == 'mouseover') {
+        currentImg = 0;
+    } 
 
 
-//     //  if (currentImg == images.length) {
-//     //     currentImg = 0;
-//     //  } 
+    //  if (currentImg == images.length) {
+    //     currentImg = 0;
+    //  } 
     
-//     // //  else{
-//     // //     clearInterval;
-//     // //  }
+    // //  else{
+    // //     clearInterval;
+    // //  }
 
-//     updateSlide(currentImg)
-// }, 1000);
+    updateSlide(currentImg)
+}, 1000);
 
 
-// //There another function here for clear
-// //let slideshowClearInterval = 
-// // //if (currentImg.type == 'mouseout') {
-// //     clearInterval(slideshowInterval);
-// // }
+//There another function here for clear
+//let slideshowClearInterval = 
+// //if (currentImg.type == 'mouseout') {
+//     clearInterval(slideshowInterval);
+// }
