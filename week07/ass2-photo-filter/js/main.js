@@ -1,6 +1,6 @@
 // Enter your JavaScript for the solution here...
 
-// //===================================================
+// //===================TREVCODE================================
 // window.addEventListener('load', function(e){
 //     const FILTERDISPLAY = document.querySelector("#filter.frm-control"); //filter functionality
 //     const TAGS = document.querySelectorAll(".tags"); //all tags
@@ -42,7 +42,37 @@
 //     }
 
 // })
-// //===================================================
+// //===================TREVCODE================================
+
+
+// // //===================CLASCODE================================
+// //////// Fill out the stats part using map filter and reduce.
+
+// // get all the thumb-display and the tags of it
+// let thumbDisplay = document.querySelectorAll(".thumb-display");
+// let tags = document.querySelectorAll(".tags");
+// // convert it into Array
+// let thumbDisplayArray = Array.from(thumbDisplay);
+// let tagsArray = Array.from(tags);
+
+// //filter the thumb-display for a given tag
+// let tag = "#river"; //CHANGE THIS TO WHAT USER INPUT IN FILTER // this is where trev go to on filter thingy
+
+// //filter thumbDisplayArray using children
+// let thumbDisplayWithTags = thumbDisplayArray.filter((thumbdisplay) => {
+//     // console.log(thumb-display);
+//     // console.log(thumb-display.children[1].innerText);
+//     // console.log("------");
+//     if(thumbdisplay.children[1].innerText.includes(tag)){ // condition must be from user input in filter
+//         return true; // this is where trev go to
+//     }
+//     return false;
+// });
+// console.log(thumbDisplayWithTags);
+// // //===================CLASCODE================================
+
+
+
 
 ///////////// START HERE
 //////PART A - user input search here
@@ -89,30 +119,6 @@ function searchForMatchingItems(searchTerm){
     console.log(thumbDisplayWithTags);
 
 }
-// // get all the thumb-display and the tags of it
-// let thumbDisplay = document.querySelectorAll(".thumb-display");
-// //let tags = document.querySelectorAll(".tags");
-// const tags = document.querySelectorAll(".tags");      //search all tags
-// //// convert it into Array
-// let thumbDisplayArray = Array.from(thumbDisplay);
-// let tagsArray = Array.from(tags);
-
-// //filter the thumb-display for a given tag
-// let tag = "#river"; //CHANGE THIS TO WHAT USER INPUT IN FILTER // this is where trev go to on filter thingy
-
-// //filter thumbDisplayArray using children
-// let thumbDisplayWithTags = thumbDisplayArray.filter((thumbdisplay) => {
-//     // console.log(thumb-display);
-//     // console.log(thumb-display.children[1].innerText);
-//     // console.log("------");
-//     if(thumbdisplay.children[1].innerText.includes(tag)){ // condition must be from user input in filter
-//         return true; // this is where trev go to
-//     }
-//     return false;
-// });
-// console.log(thumbDisplayWithTags);
-
-
 
 
 //// PART D - function for reset
