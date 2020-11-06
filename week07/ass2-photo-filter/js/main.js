@@ -51,7 +51,8 @@ function searchForMatchingItems(searchTerm){
             thumbdisplay.style.display = "none"; // THIS IS THE ANSWER BABY!!!!!
             //if there's a text in the filter
             let resetShow = document.querySelector("a.reset");
-            if (resetShow.classList.contains("hidden")){
+            //if (resetShow.classList.contains("hidden")){
+            if (searchTerm !== ""){
                 //resetShow.classList.add("hidden");
                 resetShow.style.visibility = "visible"; // THIS IS THE ANSWER BABY!!!!!
                 //resetShow.style.visibility = "hidden"; // THIS IS THE ANSWER BABY!!!!!
@@ -85,6 +86,7 @@ function resetTheDisplay(searchTerm) {
 //         thumbdisplay.style.display = "visible"; 
 //     }
 // }
+//resetTheDisplay("click", );
 
 
 
