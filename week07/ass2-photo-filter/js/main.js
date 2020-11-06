@@ -54,8 +54,10 @@ function searchForMatchingItems(searchTerm){
             if (resetShow.classList.contains("hidden")){
                 //resetShow.classList.add("hidden");
                 resetShow.style.visibility = "visible"; // THIS IS THE ANSWER BABY!!!!!
+                //resetShow.style.visibility = "hidden"; // THIS IS THE ANSWER BABY!!!!!
             } else {
                 resetShow.style.display = "none"; // THIS IS THE ANSWER BABY!!!!!
+                //resetShow.style.visibility = "visible"; // THIS IS THE ANSWER BABY!!!!!
             }
             
         } 
@@ -76,6 +78,13 @@ function resetTheDisplay(searchTerm) {
         resetShow.classList.add("hidden");
     }
 }
+
+// function resetTheDisplay() {
+//     let resetShow = document.querySelector("a.reset");
+//     if(resetShow) {
+//         thumbdisplay.style.display = "visible"; 
+//     }
+// }
 
 
 
