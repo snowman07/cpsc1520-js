@@ -57,7 +57,7 @@ function searchForMatchingItems(searchTerm){
                 resetShow.style.visibility = "visible"; // THIS IS THE ANSWER BABY!!!!!
                 //resetShow.style.visibility = "hidden"; // THIS IS THE ANSWER BABY!!!!!
             } else {
-                resetShow.style.display = "none"; // THIS IS THE ANSWER BABY!!!!!
+                resetShow.style.visibility = "hidden"; // THIS IS THE ANSWER BABY!!!!!
                 //resetShow.style.visibility = "visible"; // THIS IS THE ANSWER BABY!!!!!
             }
             
