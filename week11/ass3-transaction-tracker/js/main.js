@@ -30,19 +30,19 @@ transactionForm.addEventListener("submit", function(e) {
         // document.querySelector(".error") == "";
     }
 
-
     const type = e.currentTarget.elements.type.value;
+    //const currency = e.currentTarget.elements.currency.value;
     const currency = e.currentTarget.elements.currency.value;
-    //add for the removeImage???
+    ////////////add for the removeImage???
 
     // call function to add transactions
-    createTransactionCell(description, type, currency);
+    createTransactionCell(description, type, currency); //////////////add removeImg arg here
 
 
 
 })
 
-function createTransactionCell(description, type, currency) { //add removeImage param here???
+function createTransactionCell(description, type, currency) { /////////////add removeImage param here???
     let tableBody = document.querySelector(".transactions tbody");
     let tr = document.createElement("tr");
     let tdDescription = document.createElement("td");
@@ -51,15 +51,27 @@ function createTransactionCell(description, type, currency) { //add removeImage 
     tdType.textContent = type;
     let tdCurrency = document.createElement("td");
     tdCurrency.textContent = currency;
-    //let tdRemove???
+    //tdCurrency.setAttribute("class", "amount") = currency;
+    
+
+    //let tdCurrency = document.createElement("td")[2].setAttribute("class", "amount");
+    
+    //tdCurrency.textContent = currency;
+    
+    //tdCurrency.innerHTML = "$" + currency;
+    //let getCurrency = document.querySelector(".currency");
+    /////////////let tdRemove???
 
 
     //adding the transaction to the table 
     tr.appendChild(tdDescription);
     tr.appendChild(tdType);
     tr.appendChild(tdCurrency);
-    //for removeImage
+    //tdCurrency.appendChild(getCurrency);
+    //////////////for removeImage
     tableBody.appendChild(tr);
+
+    const s1 = '\u00E9' //é
 
 
 }
