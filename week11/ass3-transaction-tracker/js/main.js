@@ -39,7 +39,10 @@ transactionForm.addEventListener("submit", function(e) {
     // call function to add transactions
     createTransactionCell(description, type, currency); // , trashIcon ////////////add removeImg arg here
 
-
+    //reset the value
+    transactionForm.elements["description"].value = "";
+    transactionForm.elements["type"].value = "";
+    transactionForm.elements["currency"].value = "";
 
 })
 
@@ -47,6 +50,7 @@ function createTransactionCell(description, type, currency) { /////////////add r
     let tableBody = document.querySelector(".transactions tbody");
     let tr = document.createElement("tr");
     
+    //use to identify tr class="debit" or tr class="credit"
     if(type === "debit") {
         tr.setAttribute("class", "debit");
     } else if (type === "credit") {
