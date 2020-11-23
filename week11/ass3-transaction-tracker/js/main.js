@@ -46,6 +46,13 @@ transactionForm.addEventListener("submit", function(e) {
 function createTransactionCell(description, type, currency) { /////////////add removeImage param here???
     let tableBody = document.querySelector(".transactions tbody");
     let tr = document.createElement("tr");
+    
+    if(type === "debit") {
+        tr.setAttribute("class", "debit");
+    } else if (type === "credit") {
+        tr.setAttribute("class", "credit");
+    }
+
     let tdDescription = document.createElement("td");
     tdDescription.textContent = description;
     let tdType = document.createElement("td");
