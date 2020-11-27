@@ -1,22 +1,5 @@
 // Enter JavaScript for the exercise here...
 
-// let tableBody = document.querySelector(".transactions tbody");
-// let transactionForm = document.querySelector("form");
-
-// transactionForm.addEventListener("submit", function(event) {
-//     event.preventDefault();
-//     let transactionForm = event.target;
-//     let newTransaction = transactionForm.elements["description"].value;
-
-//     //reset the value
-//     transactionForm.elements["description"].value = "";
-//     //create
-
-//     let tr = document.createElement("tr");
-//     let tdDesc
-// })
-//=======================
-
 let tableBody = document.querySelector(".transactions tbody");
 const transactionForm = document.querySelector("form");
 
@@ -37,7 +20,7 @@ transactionForm.addEventListener("submit", function(e) {
     //const trashIcon = e.currentTarget.elements.trashIcon;
 
     // call function to add transactions
-    createTransactionCell(description, type, currency); // , trashIcon ////////////add removeImg arg here
+    createTransactionCell(description, type, currency); 
 
     //reset the value
     transactionForm.elements["description"].value = "";
@@ -46,7 +29,7 @@ transactionForm.addEventListener("submit", function(e) {
 
 })
 
-function createTransactionCell(description, type, currency) { /////////////add removeImage param here???
+function createTransactionCell(description, type, currency) { 
     let tableBody = document.querySelector(".transactions tbody");
     let tr = document.createElement("tr");
     
@@ -91,13 +74,18 @@ function createTransactionCell(description, type, currency) { /////////////add r
 
 tableBody.addEventListener("click", function (e) {
     // checkif the button has been clicked
-    console.log(e.target.parentNode.outerHTML)
-    if (e.target.classList.contains("delete")) {
+    console.log(e.target.parentNode.outerHTML);
+    if (e.target.classList.contains("tools")) {
         //select the parent
-        let nameItemNode = e.target.parentNode;
-        //remove the parent
-        nameItemNode.remove();
+        let toolsParentNode = e.target.parentNode;
+        //confirmation message here
+        if(confirm("Press OK to delete the row, otherwise, press Cancel")) {
+            //remove the parent
+            toolsParentNode.remove();
+        }
+
     }
 })
+
 
 
