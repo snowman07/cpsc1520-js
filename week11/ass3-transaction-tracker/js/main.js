@@ -6,27 +6,25 @@ const transactionForm = document.querySelector("form");
 transactionForm.addEventListener("submit", function(e) {
     e.preventDefault();
     const description = e.currentTarget.elements.description.value;
-    if(description == "") {
-        //console.log("Should not be blank!");
-        document.querySelector(".error").innerHTML = "Description must not be empty";
-        // description == "";
-        // document.querySelector(".error") == "";
-    }
-
     const type = e.currentTarget.elements.type.value;
-    //const currency = e.currentTarget.elements.currency.value;
     const currency = e.currentTarget.elements.currency.value;
-    ////////////add for the removeImage???
-    //const trashIcon = e.currentTarget.elements.trashIcon;
 
-    // call function to add transactions
-    createTransactionCell(description, type, currency); 
+    //validation for blank description
+    if(description == "") {
+        if ((type != "debit") || (type != "credit")) {
+            document.querySelector(".error").innerHTML = "Type must not be credit or debit";  
+        } 
+        document.querySelector(".error").innerHTML = "Description must not be empty";
+    } else {
+        createTransactionCell(description, type, currency); 
+        let error = document.querySelector(".error");
+        error.innerHTML = "";
+    }
 
     //reset the value
     transactionForm.elements["description"].value = "";
     transactionForm.elements["type"].value = "";
     transactionForm.elements["currency"].value = "";
-
 })
 
 function createTransactionCell(description, type, currency) { 
@@ -57,7 +55,6 @@ function createTransactionCell(description, type, currency) {
     tdTrashIcon.setAttribute("class", "tools");
     iTrashIcon.setAttribute("class", "delete fa fa-trash-o");
 
-
     //adding the transaction to the table 
     tr.appendChild(tdDescription);
     tr.appendChild(tdType);
@@ -65,17 +62,13 @@ function createTransactionCell(description, type, currency) {
     tr.appendChild(tdTrashIcon); //appendChild for tdTrashIcon
     tdTrashIcon.appendChild(iTrashIcon); //appendChild for iTrashIcon
 
-    //tdCurrency.appendChild(getCurrency);
-    //////////////for removeImage
     tableBody.appendChild(tr);
-
-    //const s1 = '\u00E9' //é
 }
 
+//TO DELETE A ROW
 tableBody.addEventListener("click", function (e) {
-    // checkif the button has been clicked
-    console.log(e.target.parentNode.outerHTML);
-    if (e.target.classList.contains("tools")) {
+    //console.log(e.target.parentNode.outerHTML);
+    if (e.target.classList.contains("tools")) { // I know there's better way to do this
         //select the parent
         let toolsParentNode = e.target.parentNode;
         //confirmation message here
@@ -83,9 +76,6 @@ tableBody.addEventListener("click", function (e) {
             //remove the parent
             toolsParentNode.remove();
         }
-
     }
 })
-
-
 
